@@ -308,7 +308,7 @@ def get_price_list(dt, segment='EQ'):
     res = price_list_url(yyyy, MMM, dt.strftime("%d%b%Y").upper() )
     txt =  unzip_str(res.content)
     fp = six.StringIO(txt)
-    df = pd.read_csv(fp)
+    df = pd.read_csv(fp, engine='python')
     del df['Unnamed: 13']
     return df
 
